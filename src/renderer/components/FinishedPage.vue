@@ -7,10 +7,9 @@
             <router-link to="/">
             <div class="middlecol1"><img id='logo' src="../assets/logo2.png"/></div>
             </router-link>
+            <video></video>
+            <div class="middlecol2">Here is your colorized video. Enjoy!</div>
 
-            <router-link to="/processing">
-                <div class="middlecol2" v-on:click="load">CLICK ME</div>
-            </router-link>
 
         </div>
         <div class="row4"></div>
@@ -20,7 +19,7 @@
 
 <script>
     import SystemInformation from './LandingPage/SystemInformation'
-    import router from '../router'
+
 
     export default {
         name: 'landing-page',
@@ -30,15 +29,6 @@
         methods: {
             open (link) {
                 this.$electron.shell.openExternal(link)
-            },
-            load () {
-                let xhttp = new XMLHttpRequest();
-                xhttp.open('GET', 'http://localhost:5000');
-
-                xhttp.onload = function () {
-                    router.push('/finished');
-                };
-                xhttp.send();
             }
         }
     }
