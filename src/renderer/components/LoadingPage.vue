@@ -6,7 +6,7 @@
             <router-link to="/">
                 <div class="middlecol1"><img id='logo' src="../assets/logo2.png"/></div>
             </router-link>
-            <div class="middlecol2"></div>
+            <div class="middlecol2">Please wait while your input is being processed</div>
 
         </div>
         <div class="row4"></div>
@@ -36,13 +36,16 @@
 
     body {
         font-family: 'Open Sans', sans-serif;
-        background: lightgray url('~@/assets/bg1.jpg') no-repeat fixed center;
+        background: #e2e6ef url('~@/assets/bg1.jpg') no-repeat fixed center;
         background-size: 100%
     }
 
-    #logo {
-        max-width: 500px;
-        max-height: 100px;
+    #logo{
+        max-width: 60%;
+        max-height: 250px;
+        background-repeat: no-repeat;
+        display: block;
+        margin: auto;
     }
 
     .container {
@@ -87,7 +90,7 @@
     }
 
     .middlecol2 {
-        margin-top: 80px;
+        margin-top: 200px;
         min-height: 200px;
         grid-column: 3;
         grid-row: 4/5;
@@ -96,6 +99,8 @@
         vertical-align: middle;
         line-height: 200px;
         background: rgba(0, 0, 0, 0.3);
+        padding-left: 20px;
+        padding-right: 20px;
         border-radius: 20px;
     }
 

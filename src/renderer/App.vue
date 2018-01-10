@@ -1,9 +1,9 @@
 <template>
 
-  <div id="app">
-    <router-view></router-view>
-    <vue-progress-bar></vue-progress-bar>
-  </div>
+    <div id="app">
+        <router-view></router-view>
+        <vue-progress-bar></vue-progress-bar>
+    </div>
 </template>
 
 <script>
@@ -15,15 +15,15 @@
         },
         created(){
             this.$Progress.start()
-            this.$router.beforeEach((to,from,next) => {
-                if(to.meta.progress !== undefined){
+            this.$router.beforeEach((to, from, next) => {
+                if (to.meta.progress !== undefined) {
                     let meta = to.meta.progress
                     this.$Progress.parseMeta(meta)
                 }
                 this.$Progress.start()
                 next()
             })
-            this.$router.afterEach((to,from) => {
+            this.$router.afterEach((to, from) => {
                 this.$Progress.finish()
             })
         }
@@ -31,8 +31,8 @@
 </script>
 
 <style>
-  /* CSS */
-  body{
-    background-color: #e2e6ef;
-  }
+    /* CSS */
+    body {
+        background-color: #e2e6ef;
+    }
 </style>

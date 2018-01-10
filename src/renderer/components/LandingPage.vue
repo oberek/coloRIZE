@@ -9,7 +9,7 @@
             </router-link>
 
             <router-link to="/processing">
-                <div class="middlecol2"></div>
+                <div class="middlecol2" v-on:click="load">CLICK ME</div>
             </router-link>
 
         </div>
@@ -26,11 +26,22 @@
         name: 'landing-page',
         components: {
             SystemInformation,
-            vueDropzone: vue2Dropzone
         },
         methods: {
             open (link) {
                 this.$electron.shell.openExternal(link)
+            },
+            load () {
+                let xhttp = new XMLHttpRequest();
+                xhttp.open('GET', 'http://localhost:5000');
+
+                xhttp.onload = function () {
+//                    $router.go('/')
+//                    alert("GOT A RESPONSE!")
+                    this.$router.push('/')
+                };
+                xhttp.send();
+//                alert("THIS IS A TEST");
             }
         }
     }
@@ -52,7 +63,7 @@
 
     }
     #logo{
-        max-width: 50%;
+        max-width: 60%;
         max-height: 250px;
         background-repeat: no-repeat;
         display: block;
@@ -94,7 +105,7 @@
     }
     .middlecol2{
         margin-top: 80px;
-        min-height: 200px;
+        min-height: 400px;
         grid-column: 3;
         grid-row: 4/5;
         /*border: 3px dashed pink;*/
